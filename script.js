@@ -48,11 +48,33 @@ maleRadio.addEventListener('click', () => {
   }
 });
 // 20°
+// capturar informação
+
 const getName = document.getElementById('firstname');
 const getLastName = document.getElementById('lastname');
+const getEmail = document.getElementById('phone_email');
+const getData = document.getElementById('birthdate');
+const getForm = document.getElementsByClassName(' ');
+const getSex = document.getElementsByClassName('genders')[0];
 getButton.addEventListener('click', () => {
-  const getInvalid = document.getElementById('nomeUsuario');
-  if (getName.value && getLastName.value) {
-    getInvalid.innerHTML = (`Olá, ${getName.value} ${getLastName.value}`);
+  // const getInvalid = document.getElementById('nomeUsuario');
+  
+  if (getName.value && getLastName.value && getEmail.value && getData.value) {
+    const teste =  (`Olá, ${getName.value} ${getLastName.value} 
+    ${getEmail.value} ${getData.value} `);
+    localStorage.setItem('teste1',teste);
   }
 });
+// remover
+getButton.addEventListener('click', () =>{
+  const getPai = document.getElementsByClassName('right-content')[0];
+  const getFilho2 = document.getElementsByClassName('formContato')[0]
+  getPai.removeChild(getFilho2);
+  // adicionando 
+  const addDiv = document.createElement('div');
+  const storage = localStorage.getItem('teste1');
+  addDiv.className = 'teste5';
+  getPai.appendChild(addDiv);
+  const getDiv5 = document.querySelector('.teste5')
+  getDiv5.innerHTML = storage;
+})
