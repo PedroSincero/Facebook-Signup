@@ -54,27 +54,35 @@ const getName = document.getElementById('firstname');
 const getLastName = document.getElementById('lastname');
 const getEmail = document.getElementById('phone_email');
 const getData = document.getElementById('birthdate');
-const getForm = document.getElementsByClassName(' ');
-const getSex = document.getElementsByClassName('genders')[0];
+// const getForm = document.getElementsByClassName(' ');
+const getSex = document.querySelector('.genders');
+const getSexChildren = getSex.children;
+
 getButton.addEventListener('click', () => {
-  // const getInvalid = document.getElementById('nomeUsuario');
-  
   if (getName.value && getLastName.value && getEmail.value && getData.value) {
-    const teste =  (`Olá, ${getName.value} ${getLastName.value} 
+    const teste = (`Olá, ${getName.value} ${getLastName.value}
     ${getEmail.value} ${getData.value} `);
-    localStorage.setItem('teste1',teste);
+    localStorage.setItem('teste1', teste);
+  }
+});
+getButton.addEventListener('click', () => {
+  for (let index = 0; index < getSexChildren.length; index += 1) {
+    if (getSexChildren[index].checked === true) {
+      localStorage.setItem('teste2', getSexChildren[index].value);
+    }
   }
 });
 // remover
-getButton.addEventListener('click', () =>{
+getButton.addEventListener('click', () => {
   const getPai = document.getElementsByClassName('right-content')[0];
-  const getFilho2 = document.getElementsByClassName('formContato')[0]
+  const getFilho2 = document.getElementsByClassName('formContato')[0];
   getPai.removeChild(getFilho2);
-  // adicionando 
+  // adicionando
   const addDiv = document.createElement('div');
   const storage = localStorage.getItem('teste1');
+  const storage2 = localStorage.getItem('teste2');
   addDiv.className = 'teste5';
   getPai.appendChild(addDiv);
-  const getDiv5 = document.querySelector('.teste5')
-  getDiv5.innerHTML = storage;
-})
+  const getDiv5 = document.querySelector('.teste5');
+  getDiv5.innerHTML = storage + storage2;
+});
