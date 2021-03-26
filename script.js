@@ -27,7 +27,7 @@ function save() {
 function camposInvalidos() {
   const getFilho = document.querySelector('.formContato').children;
   const getCamposInvalidos = document.getElementById('camposInvalidos');
-  for (let i = 0; i < getFilho.length; i += 1) {
+  for (let i = 1; i < getFilho.length; i += 1) {
     if (getFilho[i].value === '') {
       getCamposInvalidos.innerHTML = 'Campos inválidos';
     }
