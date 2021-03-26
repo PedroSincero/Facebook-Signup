@@ -47,7 +47,6 @@ const customRadio = document.querySelector('#personalizado');
 const femaleRadio = document.querySelector('#feminino');
 const maleRadio = document.querySelector('#masculino');
 
-//radio's
 customRadio.addEventListener('click', () => {
   getDivFlexForm.appendChild(genderOptional);
 });
