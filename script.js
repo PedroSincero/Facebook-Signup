@@ -47,7 +47,7 @@ function camposInvalidos() {
     }
   }
   if (getCamposInvalidos.innerText !== 'Campos inválidos') {
-    document.addEventListener('submit', insertOnForm);
+    insertOnForm();
   }
 }
 
